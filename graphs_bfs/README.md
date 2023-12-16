@@ -63,6 +63,7 @@ for dr, dc in neighbors:
 ```
 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/faf07156-f03e-4096-ad10-b45ace73f484)
+
 In the pic above, going up or left will result in out of bound locations, while right and down will reach the neighbors `(0,1)` and `(1, 0)`. We will add these nodes to the visited set and add them to queue.
 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/2b2c319f-6e89-45d4-a944-3e359d8b1356)
@@ -70,7 +71,6 @@ In the pic above, going up or left will result in out of bound locations, while 
 We'll then make another loop and process the items in the queue.  
 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/536de8a2-bd45-447f-9798-745ad5ea716c)
-
 
 In order to traverse the entire graph, we'll continue this process until we get to the end of the queue.  By the time we get to `(2,2)` it's neighbors all of it's neighbors will be visited, causing us to have nothing to add to the queue and break out of the loop.
 

@@ -1,7 +1,7 @@
 ## Overview
 Breath First Search (BFS) involves going level by level.  
 
-Given a 2d matrix, we start with the upper lefthand element, get the neighbors of that element and 
+Given a 2d matrix, we start with the upper lefthand element, get the neighbors of that element and keep repeating the process until we reach the bottom right node.
 
 ## Procedure
 In order to iterate through the matrix we need the rows and columns.

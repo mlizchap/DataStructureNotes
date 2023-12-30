@@ -11,13 +11,10 @@ If you look at the following examples, all of the rows are completely filled exc
 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/bc240edf-a9ac-462f-9459-5fb817820edc)
 
-
 ### 2. Order
 The next heap property involves the arangement of the elements.  For a min heap the top element should be the minimum value and then every row below should recursivly be an equal or lower value.  The max heap will have the maximum value at the top and then lower values for each row.
 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/853bdf33-6009-47ee-b078-eaa1fc2606c9)
-
-
 
 ## Array Implementation
 Heap maps can also be implemented as an array.  When creating an array, we need to start with element 1 in order for the math to work out (will discuss later), the first item in the array will be empty and then starting with the second (index 1), each item will hold a value of the heap starting with the topmost and ending with the last element in the bottom row.

@@ -74,7 +74,6 @@ Let's look at an example.  Let's say we have a trie with the word "hey" and we w
 def insert(self, word):
     # Create a current pointer and set it to the root
     curr = self.root
-    # ...
 ```
 
 Next we'll begin our iteration through the word.  Since the first character is "h" we'll check if that letter is an item in the root's children property.   Since it is in there, we'll move on to the next letter by setting our current pointer to the "h" child.
@@ -83,13 +82,12 @@ Next we'll begin our iteration through the word.  Since the first character is "
 
 ```python
 def insert(self, word):
-    curr = self.root
+    # ...
     for c in word:
-        if c not in curr.children:
-            curr.children[c] = TrieNode()
+        # ...
         # since "h" is a child of the root, we'll move to this node by pointing the current pointer to it
         curr = curr.children[c]
-    curr.word = True
+    # ...
 ```
 
 Now we will check the second character "a".  Since it is NOT a child of "h", we need to create a new node and add it to the children of the current node.  We will then move to our newly created node by setting the current pointer to it.
@@ -98,13 +96,14 @@ Now we will check the second character "a".  Since it is NOT a child of "h", we 
 
 ```python
 def insert(self, word):
-    curr = self.root
+    # ...
     for c in word:
         # since "a" is not a child of our current node, we'll create a new node and set it as one of our current node's children.
         if c not in curr.children:
             curr.children[c] = TrieNode()
+        # after creating the new node, continue the iteration through the tree
         curr = curr.children[c]
-    curr.word = True
+    # ...
 ```
 
 
@@ -114,12 +113,6 @@ Finally, we want to add the last character "t".  Since it is not a child of "a" 
 
 ```python
 def insert(self, word):
-    curr = self.root
-    for c in word:
-        # create a new node for "t", add it as a child of the current node
-        if c not in curr.children:
-            curr.children[c] = TrieNode()
-        curr = curr.children[c]
     # since this is the last letter, set it's word property to True
     curr.word = True
 ```
@@ -129,11 +122,36 @@ Let's now look at the method that will search for a complete word. Just as in th
 ```python
 def search(self, word):
     curr = self.root
+```
+
+Next we'll iterate through the word.  If the letter is not one of the current node's children, we'll return false.
+```python
+def search(self, word):
+    curr = self.root
     for c in word:
+        # return False if the current letter is not a child of the current pointer
         if c not in curr.children:
             return False
+        # otherwise move on to the next node
         curr = curr.children[c]
     return curr.word
 ```
+
+Once we break out of the loop we'll do a final check and see if the current letter we are on is the end of a word.  If so we'll return true, otherwise we'll return false.
+
+
 ## starts with
+Starts with is pretty similar to our `search` method, except we are only searching for a prefix of a word instead of a complete word.  The main difference is that there is no final check to see if the current node has a true word property.
+```python
+def startsWith(self, prefix):
+    curr = self.root
+    for c in prefix:
+        if c not in curr.children:
+            return False
+        curr = curr.children[c]
+    # return True once we break out of the loop, no need to check if there is a True word value
+    return True
+```
+
+
 

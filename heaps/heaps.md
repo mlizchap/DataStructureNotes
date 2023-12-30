@@ -7,13 +7,15 @@ Below are the 2 main properties a heap data structure should have.
 ### 1. Structural
 In order for a tree to qualify as a heap, every row should be completely filled except for the last which must be filled contiguosly from left to right.  
 
-If you look at the following examples, all of the rows are completely filled except from the last which doesn't have any "gaps" within any of the nodes, making it a valid heap.  The second example, however, is not a valid heap due to the "gaps" within the second and third rows.  
+If you look at the following examples, all of the rows are completely filled except from the last which doesn't have any "gaps" within any of the nodes, making it a valid heap.  The second example, however, is not a valid heap due to the "gaps" within the second and third rows.
+
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/bc240edf-a9ac-462f-9459-5fb817820edc)
 
 
 ### 2. Order
 The next heap property involves the arangement of the elements.  For a min heap the top element should be the minimum value and then every row below should recursivly be an equal or lower value.  The max heap will have the maximum value at the top and then lower values for each row.
-![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/0dcd2c4c-6d5d-46ce-9e8c-3c8bd4f347d6)
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/853bdf33-6009-47ee-b078-eaa1fc2606c9)
+
 
 
 ## Array Implementation

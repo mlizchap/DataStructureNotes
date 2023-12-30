@@ -3,7 +3,10 @@ Merge sort involves recursively breaking down the array until it is 1 element an
 
 ## Breaking Down the Elements
 To break down the array, we'll start with the array and then continuosly change the start, middle, and end pointers.  For each call stack, there are 2 functions that are recursively called.  One changes the end pointer to be closer to the start, while the other moves the start pointer to be closer to the end.  Once the 2 pointers meet, the base case is met and the array is returned.
-[PIC1]
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/fa0f5fbd-57c6-4331-84b4-430fd6459d50)
+
+
 
 ```python
 # Implementation of MergeSort
@@ -26,7 +29,9 @@ def mergeSort(arr, s, e):
 
 ## Building the Array Back Up
 After breaking down the elements, we'll start to build the array back up using the merge function.  The merge function will sort the array in place and return the newly sorted array. The causes the next callstack to have an array that is partially sorted depending on where the pointers are until we reach the top of the call stack.
-[PIC2]
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/e0325512-d1dc-47f8-b1d1-3b6aadca0399)
+
 
 ```python
 # Implementation of MergeSort
@@ -41,7 +46,9 @@ def mergeSort(arr, s, e):
 
 ## The Merge Function
 The merge function involves taking an array that is sorted on the left and right sides and sorting it in place until the array passed in is sorted from the start to end pointer.  
-[PIC3]
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/dd68e475-93a6-49a0-aec4-63605d781b6b)
+
 
 Since we are mutating the array passed in, we'll want to create copies for the left and right sides.  The left will go from the start to middle index, while the right will go from the element after the middle index to the end.
 ```python

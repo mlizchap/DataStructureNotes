@@ -14,6 +14,7 @@ If you look at the following examples, all of the rows are completely filled exc
 
 ### 2. Order
 The next heap property involves the arangement of the elements.  For a min heap the top element should be the minimum value and then every row below should recursivly be an equal or lower value.  The max heap will have the maximum value at the top and then lower values for each row.
+
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/853bdf33-6009-47ee-b078-eaa1fc2606c9)
 
 
@@ -35,15 +36,25 @@ For example, in the following heap, given the element 19 (index 2) we can determ
 
 
 ## Python Methods
-While it is possible to build a heap yourself, Python offers a built in implementation of the datastructure called `heapq`.  The important methods are as follows:
-- 
+While it is possible to build a heap yourself, Python offers a built in implementation of the datastructure called `heapq`.  The important methods are as follows: 
+- `import heapq`: to import the library
+- `heapq.heapify(list)`: creates a min heap
+- `heapq._heapify_max`: creates a max heap
+- `heapq.heappop(list)`: pops and returns the smallest element
+- `heapq.heappush(list, item)`: pushes an item to the heap
+- `heapq.nlargest(n, nums)`: returns an array of the n largest items
+- `heapq.smallest(n, nums)`: returns an array of the n smallest items
+For more information: https://docs.python.org/3/library/heapq.html
 
 ## An example
-To illustrate the use of a heap, we'll look at the following example - 
+TODO: add an example
 
 
 ## Implementation
 TODO: add note and code for the actual implementation
+
+## Time Complexity
+TODO: add time complexity
 
 
 <!-- PYTHON SPECIFIC METHODS -->

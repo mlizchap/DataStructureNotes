@@ -7,7 +7,6 @@ To break down the array, we'll start with the array and then continuosly change 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/fa0f5fbd-57c6-4331-84b4-430fd6459d50)
 
 
-
 ```python
 # Implementation of MergeSort
 def mergeSort(arr, s, e):

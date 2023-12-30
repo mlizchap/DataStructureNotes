@@ -67,15 +67,20 @@ def insert(self, word):
     curr.word = True
 ```
 Let's look at an example.  Let's say we have a trie with the word "hey" and we want to insert the word "hat".  We'll start at the root by setting a `current` pointer to it.  
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/f4032c06-c554-4925-a1ad-ca9fb8f477f9)
+
 ```python
 def insert(self, word):
     # Create a current pointer and set it to the root
     curr = self.root
     # ...
 ```
-![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/f4032c06-c554-4925-a1ad-ca9fb8f477f9)
 
 Next we'll begin our iteration through the word.  Since the first character is "h" we'll check if that letter is an item in the root's children property.   Since it is in there, we'll move on to the next letter by setting our current pointer to the "h" child.
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/67b573be-e838-4e15-a9fb-4839ad180087)
+
 ```python
 def insert(self, word):
     curr = self.root
@@ -87,9 +92,10 @@ def insert(self, word):
     curr.word = True
 ```
 
-![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/67b573be-e838-4e15-a9fb-4839ad180087)
-
 Now we will check the second character "a".  Since it is NOT a child of "h", we need to create a new node and add it to the children of the current node.  We will then move to our newly created node by setting the current pointer to it.
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/f4f631f5-f968-46a9-9232-cb8b6456add3)
+
 ```python
 def insert(self, word):
     curr = self.root
@@ -100,13 +106,23 @@ def insert(self, word):
         curr = curr.children[c]
     curr.word = True
 ```
-![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/f4f631f5-f968-46a9-9232-cb8b6456add3)
+
 
 Finally, we want to add the last character "t".  Since it is not a child of "a" we'll create a new node and add it as a child of "a".  Additionally we'll want to make the `word` property `True` since this is the last letter of the word.
 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/ca9fa3ed-35b9-4865-8850-29b43cec164e)
 
-
+```python
+def insert(self, word):
+    curr = self.root
+    for c in word:
+        # create a new node for "t", add it as a child of the current node
+        if c not in curr.children:
+            curr.children[c] = TrieNode()
+        curr = curr.children[c]
+    # since this is the last letter, set it's word property to True
+    curr.word = True
+```
 
 ## search
 Let's now look at the method that will search for a complete word. Just as in the `insert` method, we'll create a current pointer set to the root and then interate through the characters in the word.  

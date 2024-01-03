@@ -1,4 +1,0 @@
-<!-- # overview -->
-<!-- # insert -->
-<!-- # delete -->
-<!-- search -->

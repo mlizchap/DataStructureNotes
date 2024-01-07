@@ -29,7 +29,60 @@ Finally, we'll take our sets from the previous example and either add `{3}` or n
 Note that each item in the set will have 2 possibilities and then those possibilities compound upon one another.  Because of this this means there will be 2^n possibilities.  So in the exampe `{1, 2, 3}` there are 8 possibilities (2^3).
 
 ## Code
-Now let's look at how to code this.  We can either code out the iterative or recursive approach.
+Now let's look at how to code this.  We'll look at this example - https://leetcode.com/problems/subsets, where we take in an array and then find all the possible subsets of that array. We can either code out the iterative or recursive approach.
 
 ### Recursive
-For the recursive approach we'll start with an empty set, then we'll either 
+For the recursive approach we'll start with an empty set, or an empty array, and then iteratively add to the array.  To know which item to add to the array we'll keep track of an index.
+```python
+def subsets(arr):
+  result = []
+
+  # helper function to recursively build up the sets
+  def dfs(arr, ind):
+    # recursively iterate through the array here
+
+  dfs([], 0)
+  return result
+```
+Next we'll want to recursively build the potential sets using the helper dfs function. We'll update the array by adding another item using the index.  Increment the index to have the next index for the next callstack.
+```
+def dfs(arr, ind):
+
+```
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/7f21cf64-5243-41dc-98fd-c9cc8f30a467)
+
+We can't have a recursive function without a base case so let's add that.  We'll want to end when the callstack when the length of the array equals the size of the original set.  After we reach this point we'll use backtracking and traverse through the callstack to reach our final answer.
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/d71c475b-999d-4c41-a6dc-0efd5b1fd820)
+
+Let's consider the base case
+```python
+def subsets(arr, ind):
+  # BASE CASE
+  if (ind == len(arr):
+    result.push(arr)
+    return
+  
+  arr = arr + [arr[ind]]
+  ind += 1
+  dfs(arr, ind)
+```
+
+With our currently algorithm for each level we only have one item.  We want to update that to where for each item added we'll have 2 options, to add the new item or to not add it.  We can achieve this through backtracking.  After the first recursive call, when we have exhausted all of our options, we'll pop from our current array to get the option without the item.  Notice how the calls look the same but they will achieve different results due to the popping of the array.
+
+```python
+def subsets(arr, ind):
+  # ...
+
+  dfs(arr, ind)
+  # BACKTRACK
+  arr.pop()
+  dfs(arr, ind)
+```
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/8a04cad6-0b32-4601-bbc6-03463e7d97d4)
+
+Finally, after the callstack is finished calling, we'll exit out of the function and return the result.  Notice how the end result will be the values at the bottom of the tree.
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/cc68cbb6-2b85-4e71-9981-6e4636f15003)
+

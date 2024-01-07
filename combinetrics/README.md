@@ -86,3 +86,9 @@ Finally, after the callstack is finished calling, we'll exit out of the function
 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/cc68cbb6-2b85-4e71-9981-6e4636f15003)
 
+## Iterative
+Next let's look at the iterative approach.  This one is a little more straight forward in my opinion.  We'll create a result array and begin with an empty set. We'll then iterate the length of the array and each iteration we'll also loop through the items in our result.  Since Python's arrays are by reference we'll want to create a copy of it before we loop through it.  
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/f8d3257d-a01e-4884-adef-8850ff886b4d)
+
+Notice how each iteration we'll take a copy of our previous result and either keep the item or make a new array with the new item until we get our final result.

@@ -1,6 +1,3 @@
-## Overview of Each
-<!-- describe subsets, combinations, permutations -->
-
 ## Subsets
 Subsets deals with taking a set and determining the potential subsets of that set.  According to set theory we must take into consideration the following factors:
 - a subset can be empty

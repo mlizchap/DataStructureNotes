@@ -5,7 +5,8 @@ Permutations involve taking a list of numbers and rearranging them to get every 
 Let's look at the example of getting all the possible permutations of 1, 2, 3.  We'll start with 1 and work our way up.  1 is the only permution we have of 1 so we don't need to do anything to it.  Next we'll take 2 and get all the permutations of 1 and 2 and end up with 1,2 and 2,1, we get this by adding 1 to the beginning and end of 2.  Finally when adding 3 we'll add it to the beginning, middle, and end of 1,2 and 2,1 resulting in [3,1,2],
 [1,3,2], [1,2,3], [3,2,1], [2,3,1], [2,1,3].
 
-[PIC]
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/c84ed112-6730-4eb7-8297-35ca189c8c49)
+
 
 ## Recursive Algorithm
 Let's look at the example [1, 2, 3] again.  Iterativlely call the number of items until we reach the last item.  
@@ -20,7 +21,9 @@ def permutations(nums):
       perms = helper(i + 1)
 ```
 
-[PIC]
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/cfe9d307-9ce2-43be-9963-c32dc05ec2bc)
+
+
 
 At the top of the callstack we have an empty array and then we'll slowly go down the callstack as we build up this array even more. We'll iterate through the current array items, make a copy of each, and then add each new number to each index of the array.  
 ```python
@@ -36,4 +39,5 @@ def helper(i):
   return resPerms
 ```
 
-[PIC]
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/4fcdeb55-0a02-4430-b434-b3b27e533ce9)
+

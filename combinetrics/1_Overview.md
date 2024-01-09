@@ -6,6 +6,7 @@ Let's look at a study of numbers called combinetrics.  This involves taking in s
 - size is empty -> current set
 - ex: n: [1, 2, 3]
     - returns: [[], [1], [2], [1 2], [2 3], [1, 2, 3]]
+[PIC]
 
 2. Cominations
 - all possible combinations of numbers
@@ -13,8 +14,10 @@ Let's look at a study of numbers called combinetrics.  This involves taking in s
 - size is length of the original array
 - ex: give all size 3 combinations of the array [1, 2, 3, 4]
   - returns [[1, 2], [1, 3], 
+[PIC]
 
 3. Permutations
 - all possible permutations of a number
 - order is important
 - size is length of original array
+[PIC]

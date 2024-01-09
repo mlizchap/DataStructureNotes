@@ -68,11 +68,11 @@ def combinations(n, k):
   return result
 ```
 
-Next let's look into our dfs function and create a base case.  When the length of the current combination is equal to K. At this point we'll push our current combination to our result
+Next let's look into our dfs function and create a base case.  When the length of the current combination is equal to K. At this point we'll push our current combination to our result.Not that we do not want to push the original array since it would be further mutated, instead we'll push a copy.
 ```python
 def dfs(ind, currComb)
   if (len(currComb) == k):
-    result.append(currComb)
+    result.append(currComb.copy())
     return
 ```
 

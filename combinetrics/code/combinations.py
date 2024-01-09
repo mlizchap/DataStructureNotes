@@ -28,15 +28,9 @@ def combinations3(n, k):
       result.append(currComb.copy())
       return
     
-    # if (i > n):
-    #   return
-    
     for j in range(i, n + 1):
       currComb.append(j)
       dfs(j + 1, currComb)
       currComb.pop()
   dfs(1, [])
   return result
-
-t = combinations3(4, 5)
-print(t)

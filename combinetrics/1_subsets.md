@@ -12,11 +12,9 @@ Since an empty set can be a subset of any set we'll start with that.  From there
 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/be5cccba-5e76-46ca-851e-f3c3533fa5b9)
 
-
 Next let's compound our previous work to get the second item in the set, `{2}`.  For every set in the previous set, we'll either add 2 or not have 2.
 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/197b0880-53e1-427a-9732-26df9d45b61e)
-
 
 Finally, we'll take our sets from the previous example and either add `{3}` or not add `{3}`. Since this is the last number in the set, the last branch will represent all possible sets.
 
@@ -37,6 +35,7 @@ def subsets(arr):
   # helper function to recursively build up the sets
   def dfs(arr, ind):
     # recursively iterate through the array here
+    # ...
 
   dfs([], 0)
   return result

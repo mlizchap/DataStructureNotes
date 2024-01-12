@@ -39,7 +39,7 @@ Let's take a look at how we get this answer.
 - Return the values in shortest map
 
 ## Illustrative Steps
-1.  Create a function consisting that takes in an array of edges, a source, and a number telling us how many nodes are in the graph.  The edge will contain an array consisting of the [0] source, [1], distance and [2] weight.  The source will be the starting node we are trying to get the distances to.
+1.  Create a function consisting that takes in an array of edges, a source, and a number telling us how many nodes are in the graph.  The edge will contain an array consisting of the [0] source, [1], destination and [2] weight.  The source will be the starting node we are trying to get the distances to.
 
 ```python
 

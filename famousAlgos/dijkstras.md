@@ -39,31 +39,92 @@ Let's take a look at how we get this answer.
 - Return the values in shortest map
 
 ## Illustrative Steps
-1.  Create a function consisting that takes in an array of edges, a source, and a number telling us how many nodes are in the graph.  The edge will contain an array consisting of the [0] source, [1], destination and [2] weight.  The source will be the starting node we are trying to get the distances to.
+1.  Create a function consisting that takes in an array of edges. Each edge will contain an array consisting of the [0] source, [1], destination and [2] weight.  The source will be the starting node we are trying to get the distances to.
 
 ```python
-
+def shortestPaths(edges, src):
 ```
 
-1. Make an adjacency map.  The keys will be each of their nodes, and the values will be arrays with the first index the neighbor node value and the second index the weight.  For example, A's neighbors are B and C, A to B has a weight of 10 and A to C has a weight of 3.
+When calling our current example it will look like this:
+```python
+shortestPaths(
+  # edges
+  [["a", "b", 10], ["a", "c", 3], ["b", "d", 2], ["c", "b", 4], ["c", "e", 2], ["c", "d", 8], ["d", "e", 5]],
+  # source
+  "a"
+)
+```
 
-[PIC]
+2. Next we'll make an adjacency map.  The keys will be each of their nodes, and the values will be arrays with the first index the neighbor node value and the second index the weight.  For example, A's neighbors are B and C, A to B has a weight of 10 and A to C has a weight of 3.  Then add do B's neighbor's which is D which has a distance of 2, and so forth.  Also keep in mind that we want to add both the sources and the edges to the adjacency list, not all nodes will have a connecting node (in our case `E`) but we still should add the node to the map with an empty value.
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/f56bab02-8838-4168-b4d5-8c365263bb2b)
 
 ```python
+# create an empty adjacency map
+adj = {}
 
+# loop through the edges
+for source, dest, weight in edges:
+  # since we want to include both the sources and edges in our adj map 
+  if not adj.get(dest):
+    adj[dest] = []
+  # add the source with it's destination and destination's weight value to the map
+  if adj.get(source):
+    adj[source].append([dest, weight])
+  else:
+    adj[source] = [[dest, weight]]
 ```
 
-2. Create a min heap and add the starting node as well as create a shortest mapping.  This will eventually hold the shortest weighted paths from each node from the starting node.
-
-3. Create a while loop.  In this while loop we will (1)
+2. Create a min heap and add the starting node.  This will eventually hold the shortest weighted paths from each node from the starting node.  Note that we want to add the weight first so the minHeap will be populated based on the weight value.
 ```python
-
+minHeap = [[0, src]]
 ```
 
+3.  Next we'll create a hash map consisting of the shortest paths to the souce node.  This will start out empty but eventually the key will be the node and the value will be the shortest weighted path to a.
+```python
+shortest = {}
+```
+
+5. Create a while loop.  In this while loop we will:
+   (1) pop the min value from the min heap
+   (2) check if the min value is in shortest,
+     (3) if yes continue,
+     (4) if no:
+       (5) add the 
+   
+```python
+while minHeap
+  # (1) pop the min value from the heap
+  weightPopped,nodePopped = heapq.heappop(minHeap)
+
+  # (2) check if popped is in shortest
+  if nodePopped in shortest:
+    # (3) if yes continue
+    continue
+  # (4) if not in shortest:
+  # (5) add it
+  shortest[nodePopped] = weightPopped
+  # (6) add it's neighbors to the heap,
+  for neighborNode, neighborWeight from adj[nodePopped]:
+    # if not in shortest add 
+    if neighborNode not in shortest:
+      # weight: nodePopped + the neighbor node's weight
+      # value: the neighbor nodes' value
+      heapq.heappush(minHeap, [adj[weightPopped] + neighborWeight])
+```
+
+6. Finally, we'll return the shortest map consisting of the nodes and their corresponding shortest distance to the source passed in.
+```python
+return shortest
+```
+
+## Iterations
 Let's take a look at what happens in each loop.
-Loop 1
+### Loop 1
 We'll check if A is in the shortest map.  It is not so we add it.  We then add it's neighbors to the heap.  Normally we'll add the current weight + the neighbors weight, but since A is 0 we'll just add the B and C values, 7 and 10 respectively.
-[PIC]
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/00683440-e7f4-4809-aedf-99f27bf39403)
+
+
 
 Loop 2
 Next we'll pop from the min heap and get the values `<C,3>`.  C does not have a shortest value so we add it.  

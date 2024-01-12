@@ -121,13 +121,36 @@ return shortest
 ## Iterations
 Let's take a look at what happens in each loop.
 ### Loop 1
-We'll check if A is in the shortest map.  It is not so we add it.  We then add it's neighbors to the heap.  Normally we'll add the current weight + the neighbors weight, but since A is 0 we'll just add the B and C values, 7 and 10 respectively.
+Entering the first loop our min heap consists of the source node and it's distance of 0 since there is no distance to itself.  Since the shortest map is empty we'll add it to the map.  After we'll grab the neighbor's from A and add their weight's.  Normally we add the popped nodes weight, but in this case the popped node's weight is 0 so the neighbor's weights added to the min heap will be there original weights.
+
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/00683440-e7f4-4809-aedf-99f27bf39403)
 
+### Loop 2
+On the second while loop we'll once again pop from the min heap.  This time the node will be C since C's weight of 3 is less than B's weight of 10.  There is no C value in the shortest map so we'll add C to it with a value of 3.  Next we'll add C's neighbor's to the heap.  C has 3 neighbors - B, E, and D. Notice how the heap is rearranged to keep the properties of the heap up to date with the minimum value on top among other things.  Also note that for each of the neighbor's nodes we'll add C's weight of 3 for their total.
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/6a67a1f3-36a5-46fd-8cf7-d549efa14419)
+
+### Loop 3
+Next we pop off the minimum value E from the heap.  E is not in the shortest map so we add it.  Since E does not have any neighbors to add, the heap will rearrange and <7, B> will be at the top.
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/dde94e58-714f-4f86-96fb-973600a9d6a7)
+
+### Loop 4
+Now we will pop `<7, B>` from the heap and add it to shortest.  D is B's only neighbor we need to add so we'll add B's weight plus the weight for D to get a total of 9.
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/8cb8f423-92cf-4036-be99-9f1d948c760b)
+
+### Loop 5
+We now pop `<9, D>` from the heap and add 9 to D's value since it is not in the shortest map.
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/531ad68e-d7d3-4d77-86b8-b90ef68bf069)
+
+At this point we have all the values in filled out.  All the while loops going forward will not be continued because of the check in the shortest map will return True and break from the loop.  We can now return the shortest map.
+
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/d25fc022-5602-41d6-8ed6-260e1bd01486)
 
 
-Loop 2
-Next we'll pop from the min heap and get the values `<C,3>`.  C does not have a shortest value so we add it.  
+
 
 
 

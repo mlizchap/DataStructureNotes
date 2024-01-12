@@ -6,6 +6,7 @@ Let's look at a study of numbers called combinetrics.  This involves taking in s
 - size is empty -> current set
 - ex: n: [1, 2, 3]
     - returns: [[], [1], [2], [1 2], [2 3], [1, 2, 3]]
+TODO: add diagrams of each
 [PIC]
 
 2. Cominations

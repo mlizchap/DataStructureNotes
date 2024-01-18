@@ -7,7 +7,6 @@ Dijkstras algorithm is similar to BFS but deals with weighted paths.  For exampl
 ## Implementation
 The implementation is similar to BFS, but since BFS involves all of the paths having equal weights we use a queue in this data structure.  When we use weighted paths we want to indicate that some paths have precidence over the other and thus use a priority queue, also know as a heap, over a regular queue.
 
-
 For this example we'll look at a weighted graph and get the shortest path from A to each of the nodes.
 
 ![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/82baaa21-74b8-4288-990d-0e0966166a4a)
@@ -41,8 +40,15 @@ Let's take a look at how we get this answer.
 ## Illustrative Steps
 1.  Create a function consisting that takes in an array of edges, a source, and a number telling us how many nodes are in the graph.  The edge will contain an array consisting of the [0] source, [1], distance and [2] weight.  The source will be the starting node we are trying to get the distances to.
 
-```python
 
+```python
+adj = {}
+
+for source, dest, weight in edges:
+  if adj.get(source):
+    adj[source].append([dest, weight])
+  else:
+    adj[source] = [[dest, weight]]
 ```
 
 1. Make an adjacency map.  The keys will be each of their nodes, and the values will be arrays with the first index the neighbor node value and the second index the weight.  For example, A's neighbors are B and C, A to B has a weight of 10 and A to C has a weight of 3.

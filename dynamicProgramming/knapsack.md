@@ -9,8 +9,7 @@ profit = [5, 2, 3, 1]
 ## Recursive - Brute Force
 One way to think of this problem is to create a decision tree. You can either add an item or not add an item.  For example, when looking each item we have the decision to either add it or not add it.
 
-[PIC]
-
+![image](https://github.com/mlizchap/DataStructureNotes/assets/40478204/47db3291-48e4-42b1-b82d-57f5dff6a027)
 
 ### Code
 To start the code we'll want to create a function that accepts the profit, weight, and capacity.  For this example we'll use recursion and each time change the index and capacity, so we'll have an inner function that accepts the same args but just change the capacity.  Outside of the inner call we'll 
